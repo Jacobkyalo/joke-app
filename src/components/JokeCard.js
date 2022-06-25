@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import laugh from "../laughing.jfif";
 
 const JokeCard = () => {
-  const [joke, setJoke] = useState([]);
+  const [joke, setJoke] = useState("");
 
   useEffect(() => {
     fetchJokes();
