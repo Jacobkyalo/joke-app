@@ -4,10 +4,6 @@ import laugh from "../laughing.jfif";
 const JokeCard = () => {
   const [joke, setJoke] = useState("");
 
-  useEffect(() => {
-    fetchJokes();
-  }, []);
-
   const fetchJokes = async () => {
     const headers = {
       headers: {
@@ -18,13 +14,18 @@ const JokeCard = () => {
     const jsonData = await response.json();
     setJoke(jsonData.joke);
   };
+
+  useEffect(() => {
+    fetchJokes();
+  }, []);
+
   return (
     <div className="container">
       <div className="joke-card">
         <img src={laugh} alt="laugh-emoji" className="img" />
         <p className="joke-text">{joke}</p>
         <button type="button" className="joke-btn" onClick={fetchJokes}>
-          Generate Joke
+          Generate New Joke
         </button>
       </div>
     </div>
